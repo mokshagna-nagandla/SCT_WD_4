@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TaskFlow Pro - SkillCraft Task 4</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+  <div class="header">
+    <div class="header-top">
+      <h1>✨ TaskFlow Pro</h1>
+      <button class="theme-btn" id="themeBtn">🌙</button>
+    </div>
+    <div class="stats">
+      <div class="stat-card">
+        <div class="stat-number" id="totalTasks">0</div>
+        <div class="stat-label">Total Tasks</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" id="activeTasks">0</div>
+        <div class="stat-label">Active</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" id="completedTasks">0</div>
+        <div class="stat-label">Completed</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" id="overdueTasks">0</div>
+        <div class="stat-label">Overdue</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="sidebar">
+      <div class="add-list">
+        <input type="text" id="newListInput" placeholder="New list..." maxlength="20">
+        <button id="addListBtn">+</button>
+      </div>
+      <div class="lists" id="lists"></div>
+    </div>
+
+    <div class="content">
+      <div class="toolbar">
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="🔍 Search tasks...">
+          <span class="search-icon">🔍</span>
+        </div>
+        <select class="sort-select" id="sortSelect">
+          <option value="date">📅 By Date</option>
+          <option value="priority">⭐ By Priority</option>
+          <option value="name">🔤 By Name</option>
+        </select>
+      </div>
+
+      <div class="progress-section">
+        <div class="progress-ring">
+          <svg width="120" height="120">
+            <defs>
+              <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+              </linearGradient>
+            </defs>
+            <circle class="progress-ring-bg" cx="60" cy="60" r="52"></circle>
+            <circle class="progress-ring-fill" id="progressRing" cx="60" cy="60" r="52" stroke-dasharray="326.73" stroke-dashoffset="326.73"></circle>
+          </svg>
+          <div class="progress-text">
+            <div class="progress-percent" id="progressPercent">0%</div>
+            <div class="progress-label">Complete</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="add-task-card">
+        <div class="add-task-grid">
+          <div class="input-row">
+            <input type="text" id="taskInput" placeholder="Add a new task..." maxlength="200">
+            <button class="btn-add" id="addTaskBtn">Add Task</button>
+          </div>
+          <div class="datetime-priority">
+            <input type="date" id="taskDate">
+            <input type="time" id="taskTime">
+            <select id="taskPriority">
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="tasks" id="tasksList"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Edit Modal -->
+<div class="modal" id="editModal">
+  <div class="modal-content">
+    <h2>Edit Task</h2>
+    <input type="text" id="editTaskInput">
+    <div class="datetime-priority">
+      <input type="date" id="editTaskDate">
+      <input type="time" id="editTaskTime">
+      <select id="editTaskPriority">
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+    </div>
+    <div class="modal-buttons">
+      <button class="btn-secondary" id="cancelEditBtn">Cancel</button>
+      <button class="btn-add" id="saveEditBtn">Save</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
